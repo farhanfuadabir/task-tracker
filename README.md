@@ -1,2 +1,2 @@
-# todo-list
-Noob Django-based Project 2
+# task-tracker
+A simple todo web-app implemented va Django
