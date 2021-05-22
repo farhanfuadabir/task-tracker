@@ -1,11 +1,24 @@
-{% include 'partials/header.html' %}
-
-<ul>
-    {% for todo in todos %}
-    <li>
-        {{todo.todo_time}} -- <a href="/todos/details/{{todo.id}}"> {{todo.title}}</a>
-    </li>
-    {% endfor %}
-</ul>
-
-{% include 'partials/footer.html' %}
+{% extends 'partials/header.html' %}
+{% block content %}
+<div class="col-md-12 text-center">
+    <h1 class='text-center mb-3'>My Todo List</h1>
+    <a href="/todos/add/" class="btn btn-outline-primary btn-sm">
+        Add Todo
+    </a>
+</div>
+<br>
+{% for todo in todos %}
+    <div class='card mb-3'>
+        <div class='card-body'>
+            <p>
+                <strong>{{todo.title}}</strong> -- {{todo.todo_time}}
+                <a href="/todos/details/{{todo.id}}" class="btn btn-outline-secondary btn-sm float-right">
+                    Details
+                </a>
+            </p>
+            
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
+<!-- {% include 'partials/footer.html' %} -->
