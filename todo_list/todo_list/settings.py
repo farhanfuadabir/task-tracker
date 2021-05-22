@@ -26,8 +26,12 @@ SECRET_KEY = 'django-insecure-n0p2up7449+=+!43w*q*k(ghxs=3ljb86gibq3s)=*y#962aiq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# To access server from other devices under the router: 
+# - add the host ip to the ALLOWED_HOSTS list or add '*'
+# - runserver specifying the host ip, e.g. 0.0.0.0:8000 or 192.168.31.102:8000 (in this instance)
 
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['todo.localhost', '127.0.0.1', '192.168.31.102']
 
 # Application definition
 
