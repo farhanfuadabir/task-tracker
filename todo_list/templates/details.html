@@ -1,14 +1,26 @@
-{% include 'partials/header.html' %}
-<h2>
-    {{todo.title}}
-</h2>
-<h4>
-    {{todo.todo_time}}
-</h4>
-<p>
-    {{todo.text}}
-</p>
-<br>
-<a href="/todos"> << Go Back</a>
+{% extends 'partials/header.html' %}
+{% block content %}
 
-{% include 'partials/footer.html' %}
+<div class='card mb-3'>
+    <br>
+    <h2 class="text-center">
+        {{todo.title}}
+    </h2>
+    <h6 class="text-center">
+        {{todo.todo_time}}
+    </h4>
+    <br>
+    <div class='card-body'>
+        <p class="lead">
+            {{todo.text}}
+        </p>
+        <br>
+        <br>
+        <a href="/todos" class="btn btn-outline-primary btn-sm float-left">
+            Go Back
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+<!-- {% include 'partials/footer.html' %} -->
