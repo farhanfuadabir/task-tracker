@@ -3,6 +3,10 @@ from django.http import HttpResponse
 
 from .models import Todo
 
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+
 def index(request):
     # return HttpResponse('Hello World')
     todos_list = Todo.objects.all()
@@ -26,6 +30,16 @@ def add(request):
 
         todo = Todo(title=title, text=text, todo_time=todo_time)
         todo.save()
+
+        template = render_to_string('email_template.html', {'title': title, 'text': text, 'todo_time': todo_time})
+        email = EmailMessage(
+            'Task Tracker Notification!',
+            template,
+            settings.EMAIL_HOST_USER,
+            ['farhanfuad.abir@gmail.com'],
+        )
+        email.fail_silently = False
+        email.send()
 
         return redirect('/todos')
     else:
